@@ -1,62 +1,676 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta name="google-site-verification" content="4vNRhgvYTUkDHxOhsVFqA9hHxZWfw1Ac_Lyp93C03uM" /><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Green Crew | Property Maintenance</title>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="4vNRhgvYTUkDHxOhsVFqA9hHxZWfw1Ac_Lyp93C03uM" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Green Crew | Garden &amp; Property Maintenance in Cape Town</title>
+<meta name="description" content="Reliable garden and property maintenance across Cape Town — lawn mowing, hedge trimming, cleanups, pressure washing and more. Get a free quote over WhatsApp.">
+<meta name="theme-color" content="#1F4D2C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Green Crew | Garden &amp; Property Maintenance in Cape Town">
+<meta property="og:description" content="Lawn mowing, hedge trimming, cleanups, pressure washing and more — for homes, businesses and estates across Cape Town.">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:image" content="image/logo.jpeg">
+<link rel="icon" type="image/png" href="image/Logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "The Green Crew",
+  "description": "Garden and property maintenance serving Cape Town — lawn mowing, hedge trimming, cleanups, pressure washing and more.",
+  "telephone": "+27786640599",
+  "email": "thegreencrewco@gmail.com",
+  "areaServed": { "@type": "City", "name": "Cape Town" },
+  "sameAs": ["https://www.tiktok.com/@the.green.crew"]
+}
+</script>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f4f7f2;color:#233}
-header{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80') center/cover;height:90vh;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
-.wrap{max-width:1100px;margin:auto;padding:60px 20px}
-h1{font-size:3rem;margin:0}h2{color:#1b5e20}
-.btn{display:inline-block;margin:10px;padding:14px 24px;background:#2e7d32;color:#fff;text-decoration:none;border-radius:30px}
-nav{position:fixed;top:0;width:100%;background:#1b5e20;color:#fff;padding:14px 20px;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
-.ph{height:180px;border:2px dashed #8bc34a;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#fff}
-footer{background:#1b5e20;color:#fff;text-align:center;padding:30px}
-.float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;padding:14px 18px;border-radius:40px;text-decoration:none;font-weight:bold}
-</style></head>
+  /* ---------- Reset ---------- */
+  *,*::before,*::after{box-sizing:border-box}
+  body,h1,h2,h3,p,figure{margin:0}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font:inherit}
+
+  /* ---------- Tokens ---------- */
+  :root{
+    --ink:#16241C;
+    --paper:#F3F6EE;
+    --paper-alt:#E9EFDE;
+    --pine:#1F4D2C;
+    --pine-dark:#122B19;
+    --grass:#5C8F39;
+    --growth:#B8D95A;
+    --clay:#8A5A3B;
+    --white:#FFFFFF;
+    --nav-h:76px;
+    --radius:10px;
+    --shadow:0 6px 24px rgba(18,43,25,.10);
+    --ease:cubic-bezier(.22,.7,.32,1);
+  }
+
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Zilla Slab',Georgia,serif;font-weight:600;line-height:1.12;color:var(--pine-dark)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--grass);
+    font-weight:500;
+  }
+  section[id]{scroll-margin-top:calc(var(--nav-h) + 14px)}
+  :focus-visible{outline:3px solid var(--growth);outline-offset:3px}
+
+  /* ---------- Layout utilities ---------- */
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .section{padding:88px 0}
+  .section-alt{background:var(--paper-alt)}
+  .section-head{max-width:640px;margin-bottom:44px}
+  .section-head h2{font-size:clamp(1.7rem,1.1rem + 2.2vw,2.5rem);margin-top:10px}
+  .section-head p{margin-top:14px;color:#3d4f42;font-size:1.05rem}
+
+  /* ---------- Signature: mown-stripe pattern ---------- */
+  .stripes{
+    background-image:repeating-linear-gradient(
+      112deg,
+      var(--pine-dark) 0 44px,
+      var(--pine) 44px 88px
+    );
+  }
+  .stripes-thin{
+    height:14px;
+    background-image:repeating-linear-gradient(
+      112deg,
+      var(--grass) 0 16px,
+      var(--growth) 16px 32px
+    );
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 26px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:.98rem;
+    text-decoration:none;
+    border:2px solid transparent;
+    transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s var(--ease);
+  }
+  .btn-primary{background:var(--pine);color:var(--white)}
+  .btn-primary:hover{
+    background-image:repeating-linear-gradient(112deg,var(--pine-dark) 0 10px,var(--pine) 10px 20px);
+    transform:translateY(-2px);
+    box-shadow:var(--shadow);
+  }
+  .btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:var(--growth);color:var(--growth);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--pine);border-color:var(--pine)}
+  .btn-outline:hover{background:var(--pine);color:var(--white);transform:translateY(-2px)}
+
+  /* ---------- Nav ---------- */
+  nav.site-nav{
+    position:sticky;top:0;z-index:50;
+    height:var(--nav-h);
+    display:flex;align-items:center;
+    background:var(--pine);
+    transition:box-shadow .25s var(--ease);
+  }
+  nav.site-nav.scrolled{box-shadow:0 8px 20px rgba(0,0,0,.18)}
+  .nav-inner{
+    width:100%;max-width:1140px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
+  .brand-mark{width:36px;height:36px;border-radius:8px;background:var(--pine-dark);display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
+  .brand-mark img{width:100%;height:100%;object-fit:cover}
+  .brand-name{font-family:'Zilla Slab',serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em}
+  .nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+  .nav-links a{
+    text-decoration:none;color:rgba(255,255,255,.85);font-weight:500;font-size:.95rem;
+    padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .18s,color .18s;
+  }
+  .nav-links a:hover{color:var(--white);border-color:var(--growth)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-cta .btn{padding:10px 18px;font-size:.9rem}
+  .mobile-cta{display:none}
+  .nav-toggle{
+    display:none;background:transparent;border:0;color:var(--white);
+    width:40px;height:40px;border-radius:8px;cursor:pointer;
+    align-items:center;justify-content:center;
+  }
+  .nav-toggle:hover{background:rgba(255,255,255,.12)}
+  .nav-toggle svg{width:22px;height:22px}
+
+  @media (max-width:880px){
+    .nav-links{
+      position:absolute;top:var(--nav-h);left:0;right:0;
+      background:var(--pine);
+      flex-direction:column;align-items:stretch;gap:0;
+      padding:6px 24px 18px;
+      transform-origin:top;
+      transform:scaleY(0);opacity:0;pointer-events:none;
+      transition:transform .22s var(--ease),opacity .22s var(--ease);
+    }
+    body.nav-open .nav-links{transform:scaleY(1);opacity:1;pointer-events:auto}
+    .nav-links li{border-top:1px solid rgba(255,255,255,.12)}
+    .nav-links a{display:block;padding:14px 2px}
+    .nav-cta{display:none}
+    .nav-links .mobile-cta{border-top:none;padding-top:14px}
+    .nav-links .mobile-cta a{display:flex;justify-content:center;padding:14px 20px;color:var(--white);border-bottom:none}
+    body.nav-open .mobile-cta{display:block}
+    .nav-toggle{display:flex}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;align-items:center;
+    color:var(--white);
+    overflow:hidden;
+    background:var(--pine-dark);
+  }
+  .hero-video{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;object-fit:cover;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:1;
+    background-image:repeating-linear-gradient(112deg,rgba(18,43,25,.6) 0 60px,rgba(31,77,44,.42) 60px 120px);
+    mix-blend-mode:multiply;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:radial-gradient(ellipse 60% 55% at 18% 12%,rgba(184,217,90,.30),transparent 60%),
+               linear-gradient(180deg,rgba(10,20,12,.35),rgba(10,20,12,.55) 70%,rgba(10,20,12,.7));
+  }
+  .hero-inner{position:relative;z-index:3;max-width:680px;padding:120px 24px 90px}
+  .hero .eyebrow{color:var(--growth)}
+  .hero h1{
+    font-size:clamp(2.3rem,1.3rem + 4vw,3.9rem);
+    margin-top:14px;
+    text-wrap:balance;
+  }
+  .hero p.lead{margin-top:20px;font-size:1.15rem;color:rgba(255,255,255,.9);max-width:52ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .hero-trust{
+    margin-top:34px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+    letter-spacing:.03em;color:rgba(255,255,255,.75);
+    display:flex;flex-wrap:wrap;gap:10px 8px;align-items:center;
+  }
+  .hero-trust span:not(:last-child)::after{content:"•";margin-left:10px;color:var(--growth)}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .about-grid p{color:#3d4f42;font-size:1.05rem;margin-top:16px}
+  .about-facts{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(31,77,44,.15)}
+  .about-facts div{padding:18px 0;border-bottom:1px solid rgba(31,77,44,.15);display:flex;gap:16px;align-items:flex-start}
+  .about-facts svg{flex:none;width:22px;height:22px;color:var(--grass);margin-top:2px}
+  .about-facts strong{display:block;font-family:'Zilla Slab',serif;font-size:1.02rem;color:var(--pine-dark)}
+  .about-facts p{margin:2px 0 0;font-size:.92rem;color:#54604e}
+  @media (max-width:880px){.about-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* ---------- Services ---------- */
+  .grid-services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .svc-card{
+    background:var(--white);border-radius:var(--radius);
+    padding:26px 22px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+    transition:transform .2s var(--ease);
+  }
+  .svc-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;
+    background:var(--pine);transition:background .2s;
+  }
+  .svc-card:hover{transform:translateY(-4px)}
+  .svc-card:hover::before{background-image:repeating-linear-gradient(112deg,var(--grass) 0 8px,var(--growth) 8px 16px)}
+  .svc-card svg{width:30px;height:30px;color:var(--pine);margin-bottom:14px}
+  .svc-card h3{font-size:1.05rem;font-weight:600}
+  .svc-card p{margin-top:8px;font-size:.9rem;color:#54604e}
+  @media (max-width:940px){.grid-services{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.grid-services{grid-template-columns:1fr}}
+
+  /* ---------- Process ---------- */
+  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .process-step{position:relative;padding:0 20px 0 0}
+  .process-step:not(:last-child)::after{
+    content:"";position:absolute;top:20px;right:-4px;width:calc(100% - 44px);height:2px;
+    background-image:repeating-linear-gradient(90deg,var(--grass) 0 8px,transparent 8px 14px);
+    display:none;
+  }
+  @media (min-width:880px){.process-step:not(:last-child)::after{display:block}}
+  .process-num{
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--white);
+    background:var(--pine);width:40px;height:40px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .process-step h3{font-size:1.05rem}
+  .process-step p{margin-top:8px;font-size:.92rem;color:#54604e}
+  @media (max-width:880px){.process-list{grid-template-columns:1fr 1fr;gap:32px 20px}}
+  @media (max-width:560px){.process-list{grid-template-columns:1fr;gap:28px}}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .gallery-card{
+    background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  }
+  .gallery-media{
+    aspect-ratio:4/5;background:var(--paper-alt);position:relative;overflow:hidden;
+  }
+  .gallery-media img{width:100%;height:100%;object-fit:cover;transition:transform .35s var(--ease)}
+  .gallery-card:hover .gallery-media img{transform:scale(1.05)}
+  .gallery-media.img-missing{display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+  .gallery-media.img-missing img{display:none}
+  .gallery-media.img-missing::after{
+    content:"Photo coming soon";
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--grass);
+  }
+  .gallery-caption{
+    padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--grass);letter-spacing:.04em;
+  }
+  @media (max-width:820px){.gallery-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.gallery-grid{grid-template-columns:1fr}}
+
+  /* ---------- Areas ---------- */
+  .areas-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+  .map-frame{
+    aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+    border:6px solid var(--white);filter:saturate(.9);
+  }
+  .map-frame iframe{width:100%;height:100%;border:0}
+  @media (max-width:880px){.areas-grid{grid-template-columns:1fr}}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .contact-card{
+    background:var(--white);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+    display:flex;gap:16px;align-items:flex-start;text-decoration:none;color:var(--ink);
+    transition:transform .18s var(--ease),box-shadow .18s var(--ease);
+  }
+  .contact-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(18,43,25,.16)}
+  .contact-card svg{width:26px;height:26px;color:var(--pine);flex:none;margin-top:2px}
+  .contact-card strong{display:block;font-family:'Zilla Slab',serif;font-size:1.05rem}
+  .contact-card span{display:block;margin-top:4px;font-size:.92rem;color:#54604e}
+  .contact-final{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px}
+  @media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--pine-dark);color:rgba(255,255,255,.82)}
+  .footer-inner{padding:56px 0 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer h4{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--growth);margin-bottom:16px}
+  footer .brand-name{color:var(--white)}
+  footer p.tag{margin-top:10px;font-size:.92rem;color:rgba(255,255,255,.65);max-width:32ch}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  footer a{text-decoration:none;color:rgba(255,255,255,.78);font-size:.92rem}
+  footer a:hover{color:var(--growth)}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);padding:20px 0;
+    font-size:.82rem;color:rgba(255,255,255,.55);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  @media (max-width:760px){.footer-inner{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.footer-inner{grid-template-columns:1fr}}
+
+  /* ---------- WhatsApp float ---------- */
+  .float-wa{
+    position:fixed;right:20px;bottom:20px;z-index:60;
+    display:flex;align-items:center;gap:8px;
+    background:#25D366;color:#fff;padding:14px 18px;border-radius:40px;
+    text-decoration:none;font-weight:600;font-size:.9rem;box-shadow:0 8px 20px rgba(0,0,0,.25);
+    transition:transform .18s var(--ease);
+  }
+  .float-wa:hover{transform:translateY(-2px) scale(1.03)}
+  .float-wa svg{width:20px;height:20px}
+
+  /* ---------- Reveal-on-scroll ---------- */
+  html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  html.js .reveal.is-visible{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+    html.js .reveal{opacity:1;transform:none}
+    .hero-video{display:none}
+  }
+</style>
+</head>
 <body>
-<nav>The Green Crew</nav>
-<header><div><h1>Cape Town's Trusted Property Maintenance Team</h1>
-<p>Lawn Care • Garden Cleanups • Hedge Trimming • Pressure Washing • Property Maintenance</p>
-<a href="https://forms.gle/dukWEPtkxf4SkWqe8" class="btn">
-    Get a Free Quote
+<script>document.documentElement.classList.add('js');</script>
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <img src="image/logo-mark.png" alt="The Green Crew logo" width="36" height="36">
+      </span>
+      <span class="brand-name">The Green Crew</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#areas">Areas</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav-cta mobile-cta">
+        <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      </li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/videos/12215821/pexels-photo-12215821.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=627&amp;fit=crop&amp;w=1200">
+    <source src="https://videos.pexels.com/video-files/12215821/12215821-hd_1920_1080_60fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <p class="eyebrow">Cape Town · Garden &amp; Property Crew</p>
+    <h1>A tidy garden, without lifting a finger.</h1>
+    <p class="lead">Mowing, cleanups, hedges and more — handled by a reliable local crew, quoted over WhatsApp in minutes.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      <a class="btn btn-ghost" href="tel:+27786640599">Call Now</a>
+    </div>
+    <div class="hero-trust">
+      <span>All areas of Cape Town</span>
+      <span>Quotes over WhatsApp</span>
+      <span>Before &amp; after photos on every job</span>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">About</p>
+      <h2>A small crew that shows up, and finishes the job</h2>
+      <p>The Green Crew looks after outdoor spaces for homeowners, businesses and estates across Cape Town — lawns kept even, beds kept tidy, and hedges kept sharp. We're a small, hands-on team, and every job gets before-and-after photos so you can see exactly what was done.</p>
+    </div>
+    <div class="about-facts reveal">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/></svg>
+        <div><strong>All of Cape Town</strong><p>Homes, businesses and estates, wherever you are.</p></div>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        <div><strong>Quoted over WhatsApp</strong><p>Send a few photos, get a price back fast.</p></div>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v16M4 9h16"/></svg>
+        <div><strong>Photo proof, every job</strong><p>Before-and-after shots, so nothing's left to guess.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>What we handle</h2>
+      <p>Pick one job or hand over the whole property — here's what the crew covers.</p>
+    </div>
+    <div class="grid-services">
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="12" x2="16" y2="12"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
+        <h3>Lawn Mowing</h3>
+        <p>Regular mowing to keep lawns even, healthy and weed-free.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="16" y1="3" x2="8" y2="15"/><path d="M8 15l-4 6M8 15l-1 6M8 15l2 6M8 15l4 5"/></svg>
+        <h3>Garden Cleanups</h3>
+        <p>Full tidy-ups for gardens that have gotten away from you.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9" r="6"/><line x1="12" y1="15" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/></svg>
+        <h3>Hedge Trimming</h3>
+        <p>Clean, straight lines on hedges and shrubs.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-7"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 13c3 0 5-2 5-5-3 0-5 2-5 5z"/><line x1="5" y1="5" x2="19" y2="19"/></svg>
+        <h3>Weed Removal</h3>
+        <p>Beds, paving and pathways cleared of weeds.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10l-1 12H8L7 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <h3>Garden Waste Removal</h3>
+        <p>Green waste bagged and hauled away — nothing left behind.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="20" x2="11" y2="14"/><line x1="12" y1="13" x2="14" y2="11"/><line x1="16" y1="9" x2="20" y2="5"/><line x1="16" y1="12" x2="21" y2="11"/><line x1="17" y1="6" x2="21" y2="2"/></svg>
+        <h3>Pressure Washing</h3>
+        <p>Driveways, patios and walls washed back to new.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l5 7h-3l4 6h-4v5h-4v-5H6l4-6H7l5-7z"/></svg>
+        <h3>Tree Trimming</h3>
+        <p>Overgrown branches and small trees cut back safely.</p>
+      </div>
+      <div class="svc-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><circle cx="17" cy="7" r="2.4"/></svg>
+        <h3>Property Maintenance</h3>
+        <p>General upkeep for homes, businesses and estates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripes-thin" aria-hidden="true"></div>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2>From first message to finished garden</h2>
+    </div>
+    <div class="process-list">
+      <div class="process-step reveal">
+        <div class="process-num">1</div>
+        <h3>Send a few photos</h3>
+        <p>WhatsApp us your garden, or fill in the quote form. No site visit needed to get started.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">2</div>
+        <h3>Get a fast quote</h3>
+        <p>We look at the job and send you a price — usually the same day.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">3</div>
+        <h3>We do the work</h3>
+        <p>Our crew handles it on the day we agree, tidy and on schedule.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">4</div>
+        <h3>See the difference</h3>
+        <p>Before-and-after photos, every time, so you know exactly what was done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Gallery</p>
+      <h2>Before &amp; after</h2>
+      <p>A few recent jobs from around Cape Town.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-card reveal">
+        <div class="gallery-media">
+          <img src="image/IMG_6256.JPG" alt="Recent Green Crew job in Cape Town" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption"><span>Job 01</span><span>Cape Town</span></figcaption>
+      </figure>
+      <figure class="gallery-card reveal">
+        <div class="gallery-media">
+          <img src="image/IMG_6257.JPG" alt="Recent Green Crew job in Cape Town" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption"><span>Job 02</span><span>Cape Town</span></figcaption>
+      </figure>
+      <figure class="gallery-card reveal">
+        <div class="gallery-media">
+          <img src="image/IMG_6258.JPG" alt="Recent Green Crew job in Cape Town" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="gallery-caption"><span>Job 03</span><span>Cape Town</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="areas">
+  <div class="wrap areas-grid">
+    <div class="reveal">
+      <p class="eyebrow">Areas we service</p>
+      <h2>All of Cape Town</h2>
+      <p>We proudly service all areas across Cape Town — from the city to the suburbs. Wherever you are, send us your garden and we'll quote you.</p>
+      <div class="hero-cta" style="margin-top:24px">
+        <a class="btn btn-outline" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      </div>
+    </div>
+    <div class="map-frame reveal">
+      <iframe src="https://www.google.com/maps?q=Cape+Town,+South+Africa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Cape Town, South Africa"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch</h2>
+      <p>Fastest way to a quote is WhatsApp — send a few photos of the space and we'll take it from there.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="tel:+27786640599">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2.1z"/></svg>
+        <div><strong>Call or text</strong><span>+27 78 664 0599</span></div>
+      </a>
+      <a class="contact-card reveal" href="https://api.whatsapp.com/send?phone=27786640599">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        <div><strong>WhatsApp</strong><span>078 664 0599</span></div>
+      </a>
+      <a class="contact-card reveal" href="mailto:thegreencrewco@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <div><strong>Email</strong><span>thegreencrewco@gmail.com</span></div>
+      </a>
+      <a class="contact-card reveal" href="https://www.tiktok.com/@the.green.crew">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8a4 4 0 1 0 4 4V3a5 5 0 0 0 5 5"/></svg>
+        <div><strong>TikTok</strong><span>@the.green.crew</span></div>
+      </a>
+    </div>
+    <div class="contact-final reveal">
+      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      <a class="btn btn-outline" href="tel:+27786640599">Call Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <a class="brand" href="#top" style="display:inline-flex">
+        <span class="brand-mark">
+          <img src="image/logo-mark.png" alt="The Green Crew logo" width="36" height="36">
+        </span>
+        <span class="brand-name">The Green Crew</span>
+      </a>
+      <p class="tag">Garden and property maintenance for homes, businesses and estates across Cape Town.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+27786640599">+27 78 664 0599</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=27786640599">WhatsApp</a></li>
+        <li><a href="mailto:thegreencrewco@gmail.com">thegreencrewco@gmail.com</a></li>
+        <li><a href="https://www.tiktok.com/@the.green.crew">TikTok @the.green.crew</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 The Green Crew · Property maintenance across Cape Town.</span>
+    <span>Built with care in Cape Town</span>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://api.whatsapp.com/send?phone=27786640599" aria-label="Message us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4.2-.4c.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+  WhatsApp
 </a>
-<a class="btn" href="tel:+27786640599">Call Now</a></div></header>
-<section class="wrap">
-<h2>About Us</h2>
-<p>The Green Crew provides reliable property maintenance services across <strong>all areas of Cape Town</strong>. We help homeowners, businesses and estates keep their outdoor spaces clean, safe and beautiful.</p>
-</section>
 
+<script>
+(function(){
+  var nav = document.getElementById('siteNav');
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
 
-<section class="wrap">
-<h2>Our Services</h2>
-<div class="grid">
-<div class="card">🌿 Lawn Mowing</div><div class="card">🍃 Garden Cleanups</div>
-<div class="card">✂️ Hedge Trimming</div><div class="card">🌱 Weed Removal</div>
-<div class="card">🗑 Garden Waste Removal</div><div class="card">💦 Pressure Washing</div>
-<div class="card">🌳 Tree Trimming</div><div class="card">🏡 Property Maintenance</div>
-</div></section>
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
 
-<section class="wrap">
-<h2>Before & After Gallery</h2>
-<div class="gallery">
-<div class="Before/After"><img src="image/IMG_6256.JPG" width="350" height="500"/></div>
-<div class="Before/After"><img src="image/IMG_6257.JPG" width="350" height="500"/></div>
-<div class="Before/After"><img src="image/IMG_6258.JPG" width="350" height="500"/></div>
-</div>
-</section>
+  function closeMenu(){
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  toggle.addEventListener('click', function(){
+    var open = document.body.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') closeMenu();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
 
-<section class="wrap">
-<h2>Areas We Service</h2>
-<p><strong>We proudly service all areas across Cape Town.</strong></p>
-</section>
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
 
-<section class="wrap">
-<h2>Contact Us</h2>
-<p>📞 Phone: +27 78 664 0599<br>🎵 Tiktok: The Green Crew<br>💬 WhatsApp: 078 664 0599<br>📧 Email: thegreencrewco@gmail.com</p>
-</section>
-
-<footer>© 2026 The Green Crew • Property Maintenance • Cape Town</footer>
-<a class="float" href="https://api.whatsapp.com/send?phone=27786640599">WhatsApp</a>
-</body></html>
+  document.querySelectorAll('.gallery-media img').forEach(function(img){
+    img.addEventListener('error', function(){
+      img.closest('.gallery-media').classList.add('img-missing');
+    });
+  });
+})();
+</script>
+</body>
+</html>
