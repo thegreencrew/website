@@ -309,6 +309,51 @@
   .contact-final{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px}
   @media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
 
+  /* ---------- Quote form ---------- */
+  .quote-panel{
+    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:40px;max-width:760px;
+  }
+  .quote-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .quote-field{margin-bottom:20px}
+  .quote-field label{
+    display:block;font-weight:600;font-size:.92rem;margin-bottom:8px;color:var(--pine-dark);
+  }
+  .quote-field label span{font-weight:400;color:#7b8578;font-size:.85rem}
+  .quote-field input[type=text],
+  .quote-field input[type=tel],
+  .quote-field input[type=email],
+  .quote-field select,
+  .quote-field textarea{
+    width:100%;padding:13px 14px;font-size:.98rem;font-family:inherit;color:var(--ink);
+    background:var(--paper);border:1.5px solid rgba(31,77,44,.18);border-radius:8px;
+  }
+  .quote-field textarea{resize:vertical;min-height:96px}
+  .quote-field input:focus,.quote-field select:focus,.quote-field textarea:focus{
+    outline:2px solid var(--growth);outline-offset:1px;border-color:var(--pine);
+  }
+  .quote-toggle{display:flex;gap:10px;flex-wrap:wrap}
+  .quote-pill{
+    position:relative;padding:11px 18px;border-radius:8px;
+    border:1.5px solid rgba(31,77,44,.18);background:var(--paper);
+    font-size:.92rem;font-weight:600;cursor:pointer;transition:background .15s,color .15s,border-color .15s;
+  }
+  .quote-pill input{position:absolute;opacity:0;pointer-events:none}
+  .quote-pill.is-selected{background:var(--pine);border-color:var(--pine);color:var(--white)}
+  .quote-services{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px}
+  .quote-check{
+    display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;
+    padding:6px 0;cursor:pointer;
+  }
+  .quote-check input{width:17px;height:17px;accent-color:var(--pine);flex:none}
+  .quote-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+  .quote-note{margin-top:16px;font-size:.85rem;color:#7b8578}
+  @media (max-width:640px){
+    .quote-panel{padding:26px 20px}
+    .quote-row{grid-template-columns:1fr}
+    .quote-services{grid-template-columns:1fr}
+  }
+
   /* ---------- Footer ---------- */
   footer{background:var(--pine-dark);color:rgba(255,255,255,.82)}
   .footer-inner{padding:56px 0 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
@@ -366,11 +411,11 @@
       <li><a href="#areas">Areas</a></li>
       <li><a href="#contact">Contact</a></li>
       <li class="nav-cta mobile-cta">
-        <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+        <a class="btn btn-primary" href="#quote">Get a Free Quote</a>
       </li>
     </ul>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      <a class="btn btn-primary" href="#quote">Get a Free Quote</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -387,7 +432,7 @@
     <h1>A tidy garden, without lifting a finger.</h1>
     <p class="lead">Mowing, cleanups, hedges and more — handled by a reliable local crew, quoted over WhatsApp in minutes.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      <a class="btn btn-primary" href="#quote">Get a Free Quote</a>
       <a class="btn btn-ghost" href="tel:+27786640599">Call Now</a>
     </div>
     <div class="hero-trust">
@@ -544,11 +589,95 @@
       <h2>All of Cape Town</h2>
       <p>We proudly service all areas across Cape Town — from the city to the suburbs. Wherever you are, send us your garden and we'll quote you.</p>
       <div class="hero-cta" style="margin-top:24px">
-        <a class="btn btn-outline" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+        <a class="btn btn-outline" href="#quote">Get a Free Quote</a>
       </div>
     </div>
     <div class="map-frame reveal">
       <iframe src="https://www.google.com/maps?q=Cape+Town,+South+Africa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Cape Town, South Africa"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quote">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Get a Quote</p>
+      <h2>Tell us about the job</h2>
+      <p>For homeowners, businesses and estates — fill this in and we'll come back with a price, usually the same day.</p>
+    </div>
+
+    <div class="quote-panel reveal">
+      <form id="quoteForm">
+        <div class="quote-field">
+          <label>Who's this for?</label>
+          <div class="quote-toggle" data-group="clientType">
+            <label class="quote-pill is-selected"><input type="radio" name="clientType" value="Homeowner" checked>Homeowner</label>
+            <label class="quote-pill"><input type="radio" name="clientType" value="Business or Estate">Business or Estate</label>
+          </div>
+        </div>
+
+        <div class="quote-row">
+          <div class="quote-field">
+            <label for="qName">Full name</label>
+            <input type="text" id="qName" required>
+          </div>
+          <div class="quote-field">
+            <label for="qCompany">Company / property name <span>(if applicable)</span></label>
+            <input type="text" id="qCompany">
+          </div>
+        </div>
+
+        <div class="quote-row">
+          <div class="quote-field">
+            <label for="qPhone">Phone / WhatsApp</label>
+            <input type="tel" id="qPhone" required placeholder="e.g. 082 123 4567">
+          </div>
+          <div class="quote-field">
+            <label for="qEmail">Email <span>(optional)</span></label>
+            <input type="email" id="qEmail">
+          </div>
+        </div>
+
+        <div class="quote-field">
+          <label for="qArea">Suburb or area</label>
+          <input type="text" id="qArea" required placeholder="e.g. Constantia, Bellville, Sea Point">
+        </div>
+
+        <div class="quote-field">
+          <label>What do you need done?</label>
+          <div class="quote-services">
+            <label class="quote-check"><input type="checkbox" value="Lawn Mowing">Lawn Mowing</label>
+            <label class="quote-check"><input type="checkbox" value="Garden Cleanups">Garden Cleanups</label>
+            <label class="quote-check"><input type="checkbox" value="Hedge Trimming">Hedge Trimming</label>
+            <label class="quote-check"><input type="checkbox" value="Weed Removal">Weed Removal</label>
+            <label class="quote-check"><input type="checkbox" value="Garden Waste Removal">Garden Waste Removal</label>
+            <label class="quote-check"><input type="checkbox" value="Pressure Washing">Pressure Washing</label>
+            <label class="quote-check"><input type="checkbox" value="Tree Trimming">Tree Trimming</label>
+            <label class="quote-check"><input type="checkbox" value="Property Maintenance">Property Maintenance</label>
+          </div>
+        </div>
+
+        <div class="quote-field">
+          <label for="qDetails">Tell us about the space</label>
+          <textarea id="qDetails" rows="4" placeholder="Roughly how big is it, what state is it in, anything we should know?"></textarea>
+        </div>
+
+        <div class="quote-field">
+          <label for="qWhen">When would you like this done?</label>
+          <select id="qWhen">
+            <option>As soon as possible</option>
+            <option>This week</option>
+            <option>This month</option>
+            <option>Just getting a quote for now</option>
+          </select>
+        </div>
+
+        <div class="quote-actions">
+          <button type="button" id="quoteWhatsapp" class="btn btn-primary">Send request on WhatsApp</button>
+          <button type="button" id="quoteEmail" class="btn btn-outline">Email us instead</button>
+        </div>
+        <p class="quote-note">No account or payment needed — this just starts the conversation. Photos help too: attach a few once WhatsApp opens.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -579,7 +708,7 @@
       </a>
     </div>
     <div class="contact-final reveal">
-      <a class="btn btn-primary" href="https://forms.gle/dukWEPtkxf4SkWqe8">Get a Free Quote</a>
+      <a class="btn btn-primary" href="#quote">Get a Free Quote</a>
       <a class="btn btn-outline" href="tel:+27786640599">Call Now</a>
     </div>
   </div>
@@ -669,6 +798,82 @@
     img.addEventListener('error', function(){
       img.closest('.gallery-media').classList.add('img-missing');
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var WHATSAPP_NUMBER = "27786640599";
+  var EMAIL_ADDRESS = "thegreencrewco@gmail.com";
+
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+
+  // client-type pill toggle
+  document.querySelectorAll('.quote-toggle').forEach(function(group){
+    group.addEventListener('click', function(e){
+      var pill = e.target.closest('.quote-pill');
+      if (!pill) return;
+      group.querySelectorAll('.quote-pill').forEach(function(p){ p.classList.remove('is-selected'); });
+      pill.classList.add('is-selected');
+      pill.querySelector('input').checked = true;
+    });
+  });
+
+  function gatherQuote(){
+    var clientType = document.querySelector('input[name=clientType]:checked');
+    var services = Array.from(document.querySelectorAll('.quote-check input:checked')).map(function(i){ return i.value; });
+    return {
+      clientType: clientType ? clientType.value : 'Homeowner',
+      name: document.getElementById('qName').value.trim(),
+      company: document.getElementById('qCompany').value.trim(),
+      phone: document.getElementById('qPhone').value.trim(),
+      email: document.getElementById('qEmail').value.trim(),
+      area: document.getElementById('qArea').value.trim(),
+      services: services,
+      details: document.getElementById('qDetails').value.trim(),
+      when: document.getElementById('qWhen').value
+    };
+  }
+
+  function validate(data){
+    if (!data.name){ document.getElementById('qName').focus(); return false; }
+    if (!data.phone){ document.getElementById('qPhone').focus(); return false; }
+    if (!data.area){ document.getElementById('qArea').focus(); return false; }
+    return true;
+  }
+
+  function buildMessage(data){
+    var lines = [
+      "Hi! I'd like a quote from The Green Crew.",
+      "",
+      "Type: " + data.clientType,
+      "Name: " + data.name
+    ];
+    if (data.company) lines.push("Company / property: " + data.company);
+    lines.push("Phone: " + data.phone);
+    if (data.email) lines.push("Email: " + data.email);
+    lines.push("Area: " + data.area);
+    lines.push("Services: " + (data.services.length ? data.services.join(", ") : "Not specified"));
+    if (data.details) lines.push("Details: " + data.details);
+    lines.push("Timing: " + data.when);
+    return lines.join("\n");
+  }
+
+  document.getElementById('quoteWhatsapp').addEventListener('click', function(){
+    var data = gatherQuote();
+    if (!validate(data)) return;
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(buildMessage(data));
+    window.open(url, '_blank');
+  });
+
+  document.getElementById('quoteEmail').addEventListener('click', function(){
+    var data = gatherQuote();
+    if (!validate(data)) return;
+    var subject = "Quote request — " + data.name + (data.company ? " (" + data.company + ")" : "");
+    var url = "mailto:" + EMAIL_ADDRESS + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(buildMessage(data));
+    window.location.href = url;
   });
 })();
 </script>
